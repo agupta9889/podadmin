@@ -25,11 +25,11 @@ import {Container, Row, Col, Button, Form, FormGroup, Input, Label, FormText} fr
         },[]);
 
         const updateInputValue = (e) => {
-            // console.log('fasdsfadsf', e.target.name,e.target.value);
-            // let abc = props.user.name;
-            // abc = e.target.value;
-            setEditUser({name:e.target.value, email:e.target.value, mobileNo:e.target.value, role:e.target.value, status:e.target.value})
-            // setEditUser({name:e.target.value, email:e.target.value, mobileNo:e.target.value, role:e.target.value, status:e.target.value})
+            const editU = Object.assign({}, editUser);
+            editU[e.target.name] = e.target.value;
+            //console.log('ArunEdit', editU);
+            setEditUser(editU);
+            
         }
 
         return(
@@ -59,13 +59,13 @@ import {Container, Row, Col, Button, Form, FormGroup, Input, Label, FormText} fr
                                 <Col sm={6} xs={12}>
                                     <FormGroup>
                                     <Label>Mobile</Label>
-                                    <Input type="text" name="mobileNo" placeholder="Mobile" value={editUser.mobileNo} onChange={(e) => updateInputValue(e)} />
+                                    <Input type="number" name="mobileNo" placeholder="Mobile" value={editUser.mobileNo} onChange={(e) => updateInputValue(e)} />
                                     </FormGroup>
                                 </Col>
                                 <Col sm={6} xs={12}>
                                     <FormGroup>
                                     <Label>Role</Label>
-                                    <Input type="select" name="roles">
+                                    <Input type="select" name="roles" onChange={(e) => updateInputValue(e)}>
                                     <option value="sender" selected={ editUser.roles && editUser.roles[0].name=== 'sender' ? 'selected' : "" } >Sender</option>
                                     <option value="courier" selected={ editUser.roles && editUser.roles[0].name=== 'courier' ? 'selected' : "" }>Courier</option>
                                     <option value="transporter/shipper" selected={ editUser.roles && editUser.roles[0].name==='transporter/shipper' ? 'selected' : "" }>Transporter/Shipper</option>
@@ -77,9 +77,9 @@ import {Container, Row, Col, Button, Form, FormGroup, Input, Label, FormText} fr
                                 <Col sm={6} xs="12">
                                     <FormGroup>
                                     <Label>Status</Label>
-                                    <Input type="select" name="userStatus" >
-                                    <option value="0" selected={ editUser.userStatus=== '0' ? 'selected' : "" }>Active</option>
-                                    <option value="1" selected={ editUser.userStatus=== '1' ? 'selected' : "" }>Inactive</option>
+                                    <Input type="select" name="userStatus" onChange={(e) => updateInputValue(e)}>
+                                    <option value="0" selected={ editUser.userStatus=== '1' ? 'selected' : "" }>Active</option>
+                                    <option value="1" selected={ editUser.userStatus=== '0' ? 'selected' : "" }>Inactive</option>
                                     </Input>
                                     </FormGroup>
                                 </Col>

@@ -73,7 +73,7 @@ import {Container, Row, Col, Card, CardTitle, CardText, CardGroup} from "reactst
                         <br/><br/>
                         {   enable ? 
                             <Userdetail getUser={showUser} users={usersList} />
-                            :  
+                            :
                             <EditUser user={users} /> 
                         }
                     </Col>
