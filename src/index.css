@@ -57,3 +57,21 @@ span.badge.badge-success.badge-pill {
 table.table {
   background: #fff;
 }
+span.tex-center-edit {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  background: #0dcaf0;
+}
+span.tex-center-delete {
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  background: #dc3545;
+}
+div#editTip {
+  background: gray;
+}
+div#deleteTip {
+  background: gray;
+}
